@@ -157,7 +157,13 @@ function App() {
         )}
       </div>
 
-      <button className="next-btn" onClick={() => setProceed(true)}>Next</button>
+      <button
+        className="next-btn"
+        disabled={selectedItems.length === 0}
+        onClick={() => setProceed(true)}
+      >
+        Next
+      </button>
       </>}
 
       {proceed && <Proceed 
