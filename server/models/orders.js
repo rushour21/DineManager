@@ -1,0 +1,64 @@
+import mongoose from "mongoose";
+
+const order = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
+  tableId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Table',
+    default: null // Only required for DINE_IN orders
+  },
+  items: [
+    {
+      itemId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'MenuItem',
+      },
+      quantity: {
+        type: Number,
+        required: true,
+        min: 1
+      },
+      instructions: {
+        type: String,
+        default: ''
+      }
+    }
+  ],
+  orderType: {
+    type: String,
+    enum: ['DINE_IN', 'TAKEAWAY'],
+    required: true
+  },
+  status: {
+    type: String,
+    enum: ['PREPARING', 'READY', 'SERVED', 'COMPLETED'],
+    default: 'PREPARING'
+  },
+  totalAmount: {
+    type: Number,
+    required: true,
+    min: 0
+  },
+  taxes: {
+    type: Number,
+    required: true,
+    min: 0
+  },
+  deliveryCharge: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
+  grandTotal: {
+    type: Number,
+    required: true,
+    min: 0
+  }
+}, {
+  timestamps: true // Adds createdAt and updatedAt fields
+});
+
+export default mongoose.model('Orders', order)
