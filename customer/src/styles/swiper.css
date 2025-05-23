@@ -1,0 +1,90 @@
+/* Container for the whole swipe to order */
+.swipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The outer swipe track container */
+.swipe-track {
+  position: relative;
+  background-color: transparent;
+  border: 2px solid #e5e7eb; /* gray-300 */
+  border-radius: 9999px; /* fully rounded */
+  padding: 0.25rem; /* 1 */
+  overflow: hidden;
+  width: 320px;
+  height: 68px;
+}
+
+/* Background fill */
+.swipe-fill {
+  position: absolute;
+  inset: 4px; /* 1rem padding * 4 = 4px? Actually, in Tailwind inset-1 = 0.25rem = 4px */
+  background-color: #D9D9D9; /* green-200 */
+  border-radius: 9999px;
+  pointer-events: none; /* so it doesn't block dragging */
+}
+
+/* Text container */
+.swipe-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4b5563; /* gray-600 */
+  font-weight: 500;
+  font-size: 1.125rem; /* text-lg */
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Draggable button */
+.swipe-button {
+  position: relative;
+  background-color: white;
+  border-radius: 9999px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  cursor: grab;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  user-select: none;
+  touch-action: none; /* prevent default touch gestures */
+  transition: background-color 0.3s ease;
+}
+
+.swipe-button:active {
+  cursor: grabbing;
+}
+
+/* Icon sizes inside the button */
+.swipe-icon {
+  width: 24px;  /* w-6 */
+  height: 24px; /* h-6 */
+}
+
+/* Check icon color */
+.swipe-icon.check {
+  color: white;
+}
+
+/* Arrow icon color */
+.swipe-icon.arrow {
+  color: #374151; /* gray-700 */
+}
+
+/* Shine effect */
+.shine-effect {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.8), transparent);
+  opacity: 0.2;
+  border-radius: inherit;
+  width: 100px;
+  height: 100%;
+  pointer-events: none;
+}

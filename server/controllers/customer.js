@@ -43,7 +43,7 @@ export const getOrders = async (req, res) => {
     }
 };
 export const saveOrder = async (req, res) => {
-  const { customerName, mobile, items, orderType, totalAmount, taxes, deliveryCharge, grandTotal } = req.body;
+  const { customerName, mobile, items, orderType, totalAmount, taxes, deliveryCharge, grandTotal, deliveryAddress } = req.body;
 
   try {
     // Step 1: Create or find customer
@@ -72,6 +72,7 @@ export const saveOrder = async (req, res) => {
       totalAmount,
       taxes,
       deliveryCharge,
+      deliveryAddress,
       grandTotal,
     });
 

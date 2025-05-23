@@ -52,6 +52,10 @@ const order = new mongoose.Schema({
     default: 0,
     min: 0
   },
+  deliveryAddress: {
+    type: String,
+    default: ''
+  },
   grandTotal: {
     type: Number,
     required: true,

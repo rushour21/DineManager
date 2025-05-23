@@ -84,8 +84,8 @@ function App() {
   return (
     <div className="app">
       <div className="app-header">
-        <p style={{fontSize: '22px' }}>{greeting}</p>
-        <p>Place your order here</p>
+        <p style={{fontSize: '18px', fontWeight:500 }}>{greeting}</p>
+        <p style={{fontSize: '14px', fontWeight:400 }}>Place your order here</p>
       </div>
 
       <div className="app-searchbar">

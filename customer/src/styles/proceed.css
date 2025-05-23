@@ -1,0 +1,220 @@
+.proceed-items{
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  width: 95%;
+  margin: 0 auto;
+}
+.proceed-item{
+  display: flex;
+  flex-direction: column;
+  width: 95vw;
+}
+.item-details{
+  display: flex;
+}
+.item-info{
+  flex: 1;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+.quantity-controls-1{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: small;
+  margin: 15px auto 0 0;
+  margin-left: auto;
+  margin-right: 2px;
+}
+.quantity-controls-1 > button{
+  height: 20px;
+  width: 20px;
+  border: 1px solid #767676;
+  background-color: white;
+  border-radius: 5px;
+}
+.remove-item{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.instr{
+  color: #8C7B7B;
+  border-bottom: 2px solid #C4C4C4;
+  border-bottom-style: dashed;
+  font-size: 12px;
+  width: fit-content; 
+}
+.order-type{
+  width: 85vw;
+  height: 50px;
+  background-color: #E4E4E4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 25px;
+  margin: 15px auto 10px auto;
+}
+.order-type > button{
+  flex: 1;
+  height: 90%;
+  border-radius: 25px;
+  border: none;
+}
+.order-details{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100vw;
+  margin: 0 auto;
+  background-color: #f5f3e2;
+  padding: 10px 0;
+}
+.order-price{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  font-size: 12px;
+  margin: 0 auto;
+  font-size: 12px;
+  color: #817070;
+}
+.grand-total{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  font-size: 14px;
+  margin: 10px auto 0 auto;
+  color: #000000;
+}
+.cust-details{
+  height: 80px;
+  border-top: 5px solid #E4E4E4;
+  border-bottom: 5px solid #E4E4E4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #000000;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0 10px;
+}
+.details-input{
+  border: none;
+  border-bottom: #767676 solid 1px;
+  outline: none ;
+}
+.details-input:focus{
+  outline: none;
+}
+.more-details{
+  height: 70px;
+  border-bottom: 3px solid #E4E4E4;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  padding: 0 10px;
+  font-size: 12px;
+}
+.m-d-i{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.proceed-btn{
+  margin-top: 10px;
+}
+.del-ch{
+  border-bottom: #616161 solid 1px;
+  border-bottom-style: dashed;
+}
+.modal{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 15%;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+
+}
+.close-btn{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #282828;
+    color :white;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px auto;
+    animation: slideUp 0.3s ease-out forwards;
+    transform: translateY(100px);
+    opacity: 0;
+}
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-1{
+    background-color: #F0F5F3;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+.modal-content{
+    width: 95%;
+    margin: 15px auto 50px auto;
+}
+.text-area-container{
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 65px;
+    display: flex;
+}
+.text-t{
+    width: 98%;
+    height: 90%;
+    margin: auto;
+    background-color: #F0F5F3;
+    border: 1px solid #C7C7C7;
+    outline: none;
+    resize: none;
+    color: #505050;
+}
+.modal-btns{
+    width: 100%;
+    background-color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.btn-m{
+    width: 130px;
+    height: 35px;
+    border-radius: 12px;
+    border: 0;
+}
+.blurred{
+  filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+}
