@@ -71,6 +71,16 @@ function App() {
     });
   };
 
+  // Fixed removeItem function
+ const handleRemoveItem = (id) => {
+  setQuantities(prev => {
+    const updated = { ...prev };
+    delete updated[id]; // Removes the entry for the given id
+    return updated;
+  });
+};
+
+
   const selectedItems = menuItems
   .filter(item => quantities[item._id])
   .map(item => ({
@@ -79,8 +89,15 @@ function App() {
     total: item.price * quantities[item._id]
   }));
 
-  console.log('Quantities:', quantities);
+  useEffect(() => {
+  if (proceed && selectedItems.length === 0) {
+    setProceed(false);
+  }
+}, [selectedItems, proceed]);
 
+  console.log('Quantities:', quantities);
+  console.log('Selected Items:', selectedItems);
+  
   return (
     <div className="app">
       <div className="app-header">
@@ -98,7 +115,7 @@ function App() {
         />
       </div>
 
-      {!proceed && <><div className="app-menu-list">
+      {!proceed  && <><div className="app-menu-list">
         {categories.map(({ name, icon }) => (
           <div
             key={name}
@@ -166,13 +183,15 @@ function App() {
       </button>
       </>}
 
-      {proceed && <Proceed 
-        selectedItems={selectedItems} 
-        addItem={addItem} 
-        decreaseItem={decreaseItem} 
-        goBack={() => setProceed(false)} 
-      />
-      }
+      {proceed && selectedItems.length > 0 && (
+        <Proceed
+          selectedItems={selectedItems}
+          addItem={addItem}
+          decreaseItem={decreaseItem}
+          goBack={() => setProceed(false)}
+          removeItem={handleRemoveItem}
+        />
+      )}
     </div>
   );
 }
