@@ -1,0 +1,45 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 100vh;
+}
+.logo-s{
+    width: 55px;
+    height: 55px;
+    background-color: white;
+    border-radius: 50%;
+}
+.menu-s{
+    width: 55px;
+    height: 85vh;
+    background-color: white;
+    border-radius: 50px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.menu-item-s{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    background-color: #F0F5F3;
+}
+
+.menu-item-active{
+     width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    background-color: #d9d9d9;
+}

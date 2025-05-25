@@ -1,0 +1,21 @@
+.order-cards{
+    flex: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title-order{
+    width: 30vw;
+    height: 50px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.order-content{
+    width: 98%;
+    height: 83%;
+    background-color: white;
+    border-radius: 20px;
+}

@@ -1,0 +1,5 @@
+.dashboard{
+    display: flex;
+    gap: 20px;
+    background-color: #F0F5F3;
+}

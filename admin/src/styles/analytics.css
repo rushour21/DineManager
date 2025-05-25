@@ -1,0 +1,38 @@
+.analytics{
+    flex: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.searchbar-analytics{
+    width: 30vw;
+    height: 50px;
+    background-color: white;
+    border-radius: 50px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 10px;
+}
+.block-a{
+    width: 45px;
+    height: 40px;
+    background-color: #F2F5F5;
+    border-radius: 50%;
+}
+.searchbar-analytics input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #AFABAF;
+}
+.analytics-content{
+    width: 98%;
+    height: 83%;
+    background-color: white;
+    border-radius: 20px;
+}
