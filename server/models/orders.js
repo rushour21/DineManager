@@ -42,6 +42,9 @@ const order = new mongoose.Schema({
     required: true,
     min: 0
   },
+  totalTime:{
+    type: Number,
+  },
   taxes: {
     type: Number,
     required: true,

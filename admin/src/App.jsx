@@ -13,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} >
            {/* Nested Routes */}
+          <Route index element={<Navigate to="/analytics"  />} />
           <Route path="analytics" element={<Analytics />} />
           <Route path="tables" element={<Tables />} />
           <Route path="orderCards" element={<OrderCards />} />

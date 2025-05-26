@@ -82,7 +82,7 @@ export default function Proceed({ selectedItems, addItem, decreaseItem, removeIt
   console.log('Order Payload:', payload);
   return (
     <>
-      <div className={`proceed ${modalOpen ? 'blurred' : ''}`}>
+      <div className={`proceed ${modalOpen && !orderPlaced ? 'blurred' : ''}`}>
         <div className='proceed-items'>
           {selectedItems.map((item, index) => (
             <div key={index} className='proceed-item'>

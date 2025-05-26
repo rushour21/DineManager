@@ -1,20 +1,14 @@
 import mongoose from "mongoose";
+import orders from "./orders.js";
 
 const table = new mongoose.Schema({
-  tableNumber: {
-    type: Number,
-    required: true,
-    unique: true,
-    min: 1
-  },
   isOccupied: {
     type: Boolean,
     default: false
   },
   chairNumber: {
-    type: Number,
+    type: String,
     required: true,
-    min: 3
   },
   currentOrderId: {
     type: mongoose.Schema.Types.ObjectId,
