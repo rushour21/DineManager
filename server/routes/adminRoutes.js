@@ -1,9 +1,10 @@
 import express from 'express';
-import { getTables, saveTables, deleteTable} from '../controllers/admin.js';
+import { getTables, saveTables, deleteTable, getdashcontent} from '../controllers/admin.js';
 const router = express.Router();
 
 router.get('/tables', getTables);
 router.post('/tables', saveTables);
 router.delete('/tables/:id', deleteTable);
+router.get('/dashboard',getdashcontent); 
 
 export default router;
