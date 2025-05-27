@@ -105,7 +105,7 @@ export default function Proceed({ selectedItems, addItem, decreaseItem, removeIt
                     <button disabled={orderPlaced} className='btn' onClick={() => decreaseItem(item._id)}>-</button>
                     <span className='quantity'>{item.quantity}</span>
                     <button disabled={orderPlaced} className='btn' onClick={() => addItem(item._id)}>+</button>
-                    <div className='remove-item' onClick={() => removeItem(item._id)}>
+                    <div className='remove-item' style={{ display: orderPlaced ? 'none' : 'block' }} onClick={() => removeItem(item._id)}>
                       <TbXboxXFilled size={22} color='#E04444' />
                     </div>
                   </div>

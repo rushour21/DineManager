@@ -52,8 +52,8 @@ export const getdashcontent = async (req, res) => {
         res.status(200).json({
             totalCustomers: customers.length,
             totalOrders: orders.length,
-            totalChefs,
-            totalRevenue: totalAmount
+            totalChefs: chefs,
+            totalRevenue: Math.floor(totalAmount) // Round to two decimal places
         });
 
     } catch (error) {
