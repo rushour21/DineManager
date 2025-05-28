@@ -14,6 +14,7 @@ export const getTables = async (req, res) => {
     }
 }
 
+
 export const saveTables = async (req, res) => {
     const { chairNumber } = req.body;
     try {

@@ -67,6 +67,7 @@ export default function Proceed({ selectedItems, addItem, decreaseItem, removeIt
   const itemTotal = selectedItems.reduce((total, item) => total + item.price * item.quantity, 0);
   const taxAmount = (taxes * itemTotal) / 100;
   const grandTotal = itemTotal + deliveryCharge + taxAmount;
+  const totalTime = selectedItems.reduce((total, item) => total + item.requiredTime * item.quantity, 0);
 
   const payload = {
     customerName: customername,
@@ -75,6 +76,7 @@ export default function Proceed({ selectedItems, addItem, decreaseItem, removeIt
     orderType,
     items: itemsPayload,
     totalAmount: itemTotal,
+    totalTime,
     taxes: taxAmount,
     deliveryCharge,
     grandTotal

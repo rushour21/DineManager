@@ -2,6 +2,7 @@ import Menu from "../models/menuItem.js";
 import Order from "../models/orders.js";
 import Customers from "../models/customers.js";
 import Tables from "../models/tables.js";
+import Chefs from "../models/chefs.js";
 
 export const getmenu = async (req, res) =>{
     try {
@@ -43,7 +44,7 @@ export const getOrders = async (req, res) => {
     }
 };
 export const saveOrder = async (req, res) => {
-  const { customerName, mobile, items, orderType, totalAmount, taxes, deliveryCharge, grandTotal, deliveryAddress } = req.body;
+  const { customerName, mobile, items, orderType, totalAmount, taxes, deliveryCharge, grandTotal, deliveryAddress, totalTime } = req.body;
 
   try {
     // Step 1: Create or find customer
@@ -62,7 +63,6 @@ export const saveOrder = async (req, res) => {
       }
       tableId = availableTable._id;
     }
-
     // Step 3: Save order with assigned table
     const newOrder = new Order({
       customerId: customer._id,
@@ -70,17 +70,25 @@ export const saveOrder = async (req, res) => {
       items,
       orderType,
       totalAmount,
+      totalTime,
       taxes,
       deliveryCharge,
       deliveryAddress,
       grandTotal,
     });
-
     await newOrder.save();
 
     // Step 4: If table assigned, update it with order ID
     if (tableId) {
       await Tables.findByIdAndUpdate(tableId, { currentOrderId: newOrder._id, isOccupied: true });
+    }
+
+    // Step 5: Update chef's assigned orders
+    const chef = await Chefs.findOne().sort({ time: 1 });
+    if (chef) {
+      chef.assignorders.push(newOrder._id);
+      chef.time += newOrder.totalTime; // Update chef's total time
+      await chef.save();
     }
 
     res.status(201).json({

@@ -13,5 +13,6 @@ const chefSchema = new mongoose.Schema({
         type: Number,
         default: 0
     }
+    
 })
 export default mongoose.model('Chefs', chefSchema)

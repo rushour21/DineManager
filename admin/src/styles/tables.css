@@ -7,18 +7,18 @@
 }
 .searchbar-table{
     width: 30vw;
-    height: 50px;
+    height: 40px;
     background-color: white;
     border-radius: 50px;
-    margin-top: 15px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     gap: 20px;
     padding-left: 10px;
 }
 .block{
-    width: 45px;
-    height: 40px;
+    width: 35px;
+    height: 30px;
     background-color: #F2F5F5;
     border-radius: 50%;
 }
@@ -32,7 +32,7 @@
 }
 .table-content{
     width: 98%;
-    height: 83%;
+    height: 88%;
     background-color: white;
     border-radius: 20px;
     display: flex;

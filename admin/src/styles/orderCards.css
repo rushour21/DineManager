@@ -7,15 +7,73 @@
 }
 .title-order{
     width: 30vw;
-    height: 50px;
-    margin-top: 15px;
+    height: 40px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     gap: 20px;
 }
 .order-content{
     width: 98%;
-    height: 83%;
+    height: 88%;
+    padding: 10px 25px;
     background-color: white;
     border-radius: 20px;
+}
+.order-card{
+    width: 18%;
+    height: 49%;
+    background-color: aliceblue;
+    border-radius: 15px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.card-a{
+    background-color: white;
+    padding: 5px;
+    height: 70px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.order-number{
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+}
+.abs-div{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 80px;
+    height: 40px;
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+.card-b{
+    background-color: white;
+    padding: 5px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.item-name-1{
+    display: flex;
+    gap: 5px;
+    font-size: 13px;
+}
+.card-status{
+    width: 90px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    background-color: aqua;
+    margin: 0 auto;
 }
