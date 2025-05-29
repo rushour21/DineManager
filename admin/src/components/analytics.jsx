@@ -5,6 +5,7 @@ import { MdCurrencyRupee } from "react-icons/md";
 import { LuSquareUser } from "react-icons/lu";
 import { HiOutlineUsers } from "react-icons/hi2";
 import TablesCharts from './analyticsComponent/tablesCharts.jsx';
+import RevenueChart from './analyticsComponent/revenueChart.jsx';
 import axios from 'axios';
 import '../styles/analytics.css';
 
@@ -81,7 +82,9 @@ export default function Analytics() {
         </div>
         <div className='analytics-b'>
           <div className='analytics-chart-a'></div>
-          <div className='analytics-chart-a'></div>
+          <div className='analytics-chart-a'>
+            <RevenueChart />
+          </div>
           <div className='analytics-chart-a'>
             <TablesCharts />
           </div>

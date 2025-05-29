@@ -82,9 +82,9 @@ console.log("Order Line State:", orderLine);
                   <PiForkKnifeFill color='#007AFF'/>
                   <p>#{100 + (index + 1)}</p>
                 </div>
-                <div className='table-time' style={{fontSize: '9px'}}>
+                <div className='table-time' style={{fontSize: '8px'}}>
                   <p>Table {order.tableNumber}</p>
-                  <p>{new Date(order.createdAt).toLocaleTimeString()}</p>
+                  <p>{new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                 </div>
                 <p style={{fontSize: '12px'}} className='item-number'>{order.items.length}&nbsp;&nbsp;Items</p>
               <div className='abs-div' style={{backgroundColor: orderTitle.backgroundColor}}> 
