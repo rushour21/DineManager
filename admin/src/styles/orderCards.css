@@ -16,9 +16,15 @@
 .order-content{
     width: 98%;
     height: 88%;
-    padding: 10px 25px;
+    padding: 10px 30px;
     background-color: white;
     border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 10px;
+    overflow: auto;
+    scrollbar-width: none;
 }
 .order-card{
     width: 18%;
@@ -53,6 +59,10 @@
     height: 40px;
     background-color: aliceblue;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .card-b{
     background-color: white;
@@ -61,11 +71,22 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    font-size: 10px;
+
 }
 .item-name-1{
     display: flex;
     gap: 5px;
-    font-size: 13px;
+}
+.item-name-o{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin:5px 0 0 40px;
+}
+.item-name-2{
+    display: flex;
+    gap: 10px;
 }
 .card-status{
     width: 90px;
@@ -76,4 +97,5 @@
     border-radius: 25px;
     background-color: aqua;
     margin: 0 auto;
+    font-size: 10px;
 }

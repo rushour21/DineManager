@@ -37,6 +37,7 @@ export default function Proceed({ selectedItems, addItem, decreaseItem, removeIt
       const existing = itemsPayload.find(p => p.itemId === item._id);
       return {
         itemId: item._id,
+        itemName: item.name,
         instructions: existing?.instructions || '',
         quantity: item.quantity
       };

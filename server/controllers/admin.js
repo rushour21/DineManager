@@ -62,3 +62,39 @@ export const getdashcontent = async (req, res) => {
         res.status(500).json({ message: "Error fetching dashboard content" });
     }
 };
+
+export const getOrderline = async (req, res) => {
+  try {
+    const orders = await Order.find().populate('tableId');
+
+    if (!orders || orders.length === 0) {
+      return res.status(404).json({ message: "No orders found" });
+    }
+
+    console.log("Fetched orders:", orders);
+
+    const tableIds = orders
+      .filter(order => order.tableId && order.tableId._id)
+      .map(order => order.tableId._id.toString());
+
+    const uniqueTableIds = [...new Set(tableIds)];
+
+    const tableNumberMap = {};
+    uniqueTableIds.forEach((id, index) => {
+      tableNumberMap[id] = index + 1;
+    });
+
+    const enrichedOrders = orders.map(order => ({
+      ...order._doc,
+      tableNumber: order.tableId ? tableNumberMap[order.tableId._id.toString()] : null,
+    }));
+
+    res.status(200).json(enrichedOrders);
+  } catch (error) {
+    console.error("Error fetching order line:", error); // <== This will help debug the real issue
+    res.status(500).json({ message: "Error fetching order line", error: error.message });
+  }
+};
+
+
+

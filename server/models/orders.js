@@ -7,7 +7,7 @@ const order = new mongoose.Schema({
   },
   tableId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Table',
+    ref: 'Tables',
     default: null // Only required for DINE_IN orders
   },
   items: [
@@ -15,6 +15,10 @@ const order = new mongoose.Schema({
       itemId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'MenuItem',
+      },
+      itemName: {
+        type: String,
+        required: true
       },
       quantity: {
         type: Number,
