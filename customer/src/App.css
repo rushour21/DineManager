@@ -80,6 +80,7 @@
   width: 95%;
   margin: 0 auto;
   overflow-y: auto;
+  scrollbar-width: none; 
 }
 .item-image{
   width: 100%;

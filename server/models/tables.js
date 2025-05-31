@@ -5,7 +5,7 @@ const table = new mongoose.Schema({
   isOccupied: {
     type: Boolean,
     default: false
-  },
+  }, 
   chairNumber: {
     type: String,
     required: true,

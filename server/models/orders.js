@@ -37,10 +37,10 @@ const order = new mongoose.Schema({
     required: true
   },
   status: {
-    type: String,
-    enum: ['PREPARING', 'READY', 'SERVED', 'COMPLETED'],
-    default: 'PREPARING'
-  },
+  type: String,
+  enum: ["PREPARING", "ORDER_DONE", "NOT_PICKED_UP", "PICKED_UP"],
+  default: 'PREPARING'
+},
   totalAmount: {
     type: Number,
     required: true,

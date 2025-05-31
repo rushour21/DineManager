@@ -96,5 +96,25 @@ export const getOrderline = async (req, res) => {
   }
 };
 
+export const updateStatus = async (req, res) => {
+  const { id } = req.params;
+  console.log(id)
+  try {
+    const updatedOrder = await Order.findByIdAndUpdate(
+      id,
+      { status: 'PICKED_UP' },
+      { new: true }
+    );
+    if (!updatedOrder) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+    res.status(200).json(updatedOrder);
+  } catch (error) {
+    console.error("Error updating order status:", error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+
 
 

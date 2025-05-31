@@ -1,0 +1,72 @@
+.admin-dashboard {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  width: 90vw;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.admin-heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.admin-dashboard .app-menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.admin-dashboard .app-menu {
+  color: #616161;
+  border: 2px solid #616161;
+  border-radius: 8px;
+  width: 100px;
+  height: 60px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.admin-dashboard .selected {
+  background-color: #616161;
+  color: white;
+}
+
+.sel-cat {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.admin-dashboard .menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.admin-dashboard .menu-card {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.admin-dashboard .menu-card:hover {
+  transform: scale(1.02);
+}
+
+.admin-dashboard .item-image {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+.admin-dashboard .card-details {
+  padding: 10px;
+}
