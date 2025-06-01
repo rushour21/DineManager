@@ -1,4 +1,3 @@
-// Add this to your imports
 import React, { useEffect, useState } from 'react';
 import { LiaChairSolid } from "react-icons/lia";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -10,15 +9,19 @@ export default function Tables() {
   const [tables, setTables] = useState([]);
   const [addTable, setAddTable] = useState(false);
   const [chairNumber, setChairNumber] = useState("3");
-  const [searchTerm, setSearchTerm] = useState(""); // 🔍 search state
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchTables = async () => {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/admin/tables`);
-      if (response.status === 200) {
-        setTables(response.data);
-      } else {
-        console.error("Failed to fetch tables");
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/admin/tables`);
+        if (response.status === 200) {
+          setTables(response.data);
+        } else {
+          console.error("Failed to fetch tables");
+        }
+      } catch (error) {
+        console.error("Error fetching tables:", error);
       }
     };
     fetchTables();
@@ -52,7 +55,6 @@ export default function Tables() {
     }
   };
 
-  // 🔍 Filtered tables based on chairNumber
   const filteredTables = tables.filter((table) =>
     table.chairNumber.toString().includes(searchTerm.trim())
   );
@@ -70,38 +72,51 @@ export default function Tables() {
       </div>
 
       <div className='table-content'>
-        <h2 style={{ color: '#565656' }}>Tables</h2>
-        <div className='table-list'>
-          {filteredTables.map((table, index) => (
-            <div key={table._id} className='table-item'>
-              <p>Table</p>
-              <h2>{String(index + 1).padStart(2, '0')}</h2>
-              <RiDeleteBin6Line className='delete-icon-table' onClick={() => handleDeleteTable(table._id)} />
-              <div className='table-chair'>
-                <LiaChairSolid />
-                <p>{table.chairNumber}</p>
-              </div>
+        {tables.length > 0 ? (
+          <>
+            <p style={{ fontSize: '20px', fontWeight: "600", color: "#565656" }}>Tables</p>
+            <div className='table-list'>
+              {filteredTables.map((table, index) => (
+                <div key={table._id} className='table-item'>
+                  <p>Table</p>
+                  <h2 style={{ fontWeight: "600" }}>{String(index + 1).padStart(2, '0')}</h2>
+                  <RiDeleteBin6Line className='delete-icon-table' onClick={() => handleDeleteTable(table._id)} />
+                  <div className='table-chair'>
+                    <LiaChairSolid />
+                    <p>{table.chairNumber}</p>
+                  </div>
+                </div>
+              ))}
+              {tables.length < 32 && (
+                <div onClick={() => setAddTable(!addTable)} className='add-table'>
+                  <FaPlus />
+                  {addTable && (
+                    <div className='adding-table' onClick={(e) => e.stopPropagation()}>
+                      <p style={{ fontSize: "12px" }}>Table Name</p>
+                      <p style={{
+                        fontSize: "18px",
+                        fontWeight: "600",
+                        textAlign: 'center',
+                        borderBottom: '1px dashed #BABABA'
+                      }}>
+                        {String(tables.length + 1).padStart(2, '0')}
+                      </p>
+                      <p style={{ margin: "10px 0" }}>chair</p>
+                      <select name="chair" className='sel-chair' value={chairNumber} onChange={(e) => setChairNumber(e.target.value)}>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                      <button onClick={handleCreateTable} className='create-btn'>Create</button>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
-          ))}
-          <div onClick={() => setAddTable(!addTable)} className='add-table'>
-            <FaPlus />
-            {addTable && (
-              <div className='adding-table' onClick={(e) => e.stopPropagation()}>
-                <p style={{ fontSize: "12px" }}>Table Name</p>
-                <h2 style={{ textAlign: 'center', borderBottom: '1px dashed #BABABA' }}>
-                  {String(tables.length + 1).padStart(2, '0')}
-                </h2>
-                <p style={{ margin: "10px 0" }}>chair</p>
-                <select name="chair" className='sel-chair' value={chairNumber} onChange={(e) => setChairNumber(e.target.value)}>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-                <button onClick={handleCreateTable} className='create-btn'>Create</button>
-              </div>
-            )}
-          </div>
-        </div>
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
     </div>
   );

@@ -22,7 +22,7 @@
 }
 .table-chart-content{
     width: 100%;
-    padding: 0 5px;
+    padding: 10px 10px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
     gap: 5px;

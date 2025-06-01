@@ -6,6 +6,7 @@ import { LuSquareUser } from "react-icons/lu";
 import { HiOutlineUsers } from "react-icons/hi2";
 import TablesCharts from './analyticsComponent/tablesCharts.jsx';
 import RevenueChart from './analyticsComponent/revenueChart.jsx';
+import Piechart from './analyticsComponent/piechart.jsx';
 import axios from 'axios';
 import '../styles/analytics.css';
 
@@ -49,39 +50,41 @@ export default function Analytics() {
         <input type="text" placeholder='Search' />
       </div>
       <div className='analytics-content'>
-        <h2 style={{fontSize: '20px'}}>Analytics</h2>
+        <p style={{fontSize: '16px', fontWeight:"600", color:"#565656"}}>Analytics</p>
         <div className='analytics-a'>
           <div className='info-block'>
             <div className='icon-block-a'><PiBowlFood /></div>
             <div className='block-details'>
-              <h3>{totalChefs.toString().padStart(2, '0')}</h3>
+              <p style={{fontSize:"16px"}}>{totalChefs.toString().padStart(2, '0')}</p>
               <p>TOTAL CHEFS</p>
             </div>
           </div>
           <div className='info-block'>
             <div className='icon-block-a'><MdCurrencyRupee/></div>
             <div className='block-details'>
-              <h3>{formatNumber(totalRevenue)}</h3>
+              <p style={{fontSize:"16px"}}>{formatNumber(totalRevenue)}</p>
               <p>TOTAL REVENUE</p>
             </div>
           </div>
           <div className='info-block'>
             <div className='icon-block-a'><LuSquareUser/></div>
             <div className='block-details'>
-              <h3>{totalOrders.toString().padStart(2, '0')}</h3>
+              <p style={{fontSize:"16px"}}>{totalOrders.toString().padStart(2, '0')}</p>
               <p>TOTAL ORDERS</p>
             </div>
           </div>
           <div className='info-block'>
             <div className='icon-block-a'><HiOutlineUsers/></div>
             <div className='block-details'>
-              <h3>{totalCustomers.toString().padStart(2, '0')}</h3>
+              <p style={{fontSize:"16px"}}>{totalCustomers.toString().padStart(2, '0')}</p>
               <p>TOTAL CLIENTS</p>
             </div>
           </div>
         </div>
         <div className='analytics-b'>
-          <div className='analytics-chart-a'></div>
+          <div className='analytics-chart-a'>
+            <Piechart/>
+          </div>
           <div className='analytics-chart-a'>
             <RevenueChart />
           </div>

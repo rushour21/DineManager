@@ -116,7 +116,7 @@ console.log("Order Line State:", orderLine);
   return (
     <div className='order-cards'>
       <div className='title-order'>
-        <h2>Order Line</h2>
+      <p style={{color:"#565656", fontSize: '20px', fontWeight:"600"}}>Order Line</p>
       </div>
       <div className='order-content'>
           {orderLine.map((order, index) => {
