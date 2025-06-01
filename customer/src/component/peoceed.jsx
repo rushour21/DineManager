@@ -139,26 +139,28 @@ export default function Proceed({ selectedItems, addItem, decreaseItem, removeIt
         <div className='order-details'>
           <div className='order-price'><p>Item Total</p><p>₹ {itemTotal}</p></div>
           <div className='order-price'><p className='del-ch'>Delivery Charge</p><p>₹ {deliveryCharge}</p></div>
-          <div className='order-price'><p>Taxes</p><p>₹ {taxAmount}</p></div>
+          {orderType === 'TAKEAWAY' && <div className='order-price'><p>Taxes</p><p>₹ {taxAmount}</p></div>}
           <div className='grand-total'><p>Grand Total</p><p>₹ {grandTotal}</p></div>
         </div>
 
         <div className='cust-details'>
           <p>Your Details</p>
           <div className='cust-details-input'>
-            <input disabled={orderPlaced} className='details-input' value={customername} onChange={(e) => setCustomerName(e.target.value)} type="text" placeholder='Name' />
+            {!orderPlaced ? <><input disabled={orderPlaced} className='details-input' value={customername} onChange={(e) => setCustomerName(e.target.value)} type="text" placeholder='Name' />
             <span>,</span>
-            <input disabled={orderPlaced} className='details-input' value={customerMobile} onChange={(e) => setCustomerMobile(e.target.value)} type="text" placeholder='Mobile' />
+            <input disabled={orderPlaced} className='details-input' value={customerMobile} onChange={(e) => setCustomerMobile(e.target.value)} type="text" placeholder='Mobile' /></>
+            : 
+        <p style={{fontSize:"14x", fontWeight:"400"}}>{customername},{customerMobile}</p>}
           </div>
         </div>
 
         <div className='more-details'>
-          <div className='m-d-i'>
+          {orderType === 'TAKEAWAY' &&<div className='m-d-i'>
             <FaMapMarkerAlt color='#4AB425' /> 
             <p>Delivery at Home - 
               <input disabled={orderPlaced} className='details-input' value={customerAddress} onChange={(e) => setCustomerAddress(e.target.value)} type="text" placeholder='Address' />
             </p>
-          </div>
+          </div>}
           <div className='m-d-i'><FaClock color='#4AB425' /> <p>Delivery in {totalPrepTime} min</p></div>
         </div>
 

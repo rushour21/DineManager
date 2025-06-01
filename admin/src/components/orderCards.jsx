@@ -119,7 +119,7 @@ console.log("Order Line State:", orderLine);
       <p style={{color:"#565656", fontSize: '20px', fontWeight:"600"}}>Order Line</p>
       </div>
       <div className='order-content'>
-          {orderLine.map((order, index) => {
+          {[...orderLine].reverse().map((order, index) => {
             const orderTitle = getOrdertitle(order)
             const orderStatus = getStatus(order)
             return (
@@ -127,7 +127,7 @@ console.log("Order Line State:", orderLine);
               <div className='card-a'>
                 <div className='order-number'>
                   <PiForkKnifeFill color='#007AFF'/>
-                  <p>#{100 + (index + 1)}</p>
+                  <p>#{100 + (orderLine.length - index)}</p>
                 </div>
                 <div className='table-time' style={{fontSize: '8px'}}>
                   {order.orderType === "DINE_IN" ? <p>Table {order.tableNumber}</p> : <p></p> }

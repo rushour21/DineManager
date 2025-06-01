@@ -20,7 +20,7 @@ export default function TablesCharts() {
   return (
     <div className='table-chart'>
         <div className='table-chart-header'>
-            <p className='chart-title'>Tables</p>
+            <p className='chart-title' style={{color:"#6E6E6E"}}>Tables</p>
             <div className='block-tt'>
                 <div style={{display: 'flex', gap: '5px'}}><div style={{backgroundColor: '#3DC35F', width: '10px', height:'10px', borderRadius: '50%'}}></div>Reserved</div>
                 <div style={{display: 'flex', gap: '5px'}}><div style={{backgroundColor: '#FFFFFF', width: '10px', height:'10px', borderRadius: '50%'}}></div>Available</div>
