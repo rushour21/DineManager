@@ -116,7 +116,7 @@ const PercentageChart = ({ data }) => {
 };
 
 export default function piechart() {
-  const [timeframe, setTimeframe] = useState('Daily');
+  const [timeframe, setTimeframe] = useState('Monthly');
   const [DropdownOpen, setDropdownOpen] = useState(false);
   const [data, setData] = useState([]);
 
